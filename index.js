@@ -191,7 +191,7 @@ mongoose.connect("mongodb+srv://loranii:456lo.9978@cluster0.es5byry.mongodb.net/
 }).catch((error)=>{
   console.log("error with connecting with the DB", error)
 })
-
+ 
 ///////بعد ذلك سننشأ مجلد الموديل
 //يعني ملف جافاسكريبت داخل مجلد الموديل  entity وننشيء انتيتي 
 //خصائص Properties وهذا الملف هو كلاس او اوبجكت يلي بدي اعطيه 
@@ -304,8 +304,10 @@ app.delete("/articles/:articleId", async(req,res)=>{
 
 app.get("/showArticles", async (req, res)=>{
       const articles = await Article.find();
+      const artNum = articles.length
       res.render("showArticles.ejs",{
-            allArticles:articles
+            allArticles:articles,
+            artNum:artNum
       })
 
 })
